@@ -23,7 +23,6 @@ export default class HomePage extends Component {
             });
     }
 
-
     renderHomePage = () => {
         return(
             <Grid container spacing={3}>

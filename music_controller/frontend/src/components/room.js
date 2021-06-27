@@ -27,6 +27,15 @@ export default class Room extends Component {
         });
     }
 
+    handleLeaveRoom = () => {
+        const requestOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+        };
+        fetch("/api/leave-room/", requestOptions)
+            .then((_response) => {this.props.history.push("/")})
+    }
+
     render() {
         return (
             <Grid container spacing={1}>
@@ -51,7 +60,7 @@ export default class Room extends Component {
                     </Typography>
                 </Grid>
                 <Grid item xs={12} align="center">
-                    <Button color="secondary" to="/" component={Link} variant="contained">
+                    <Button color="secondary" onClick={this.handleLeaveRoom}  variant="contained">
                         Leave Room
                     </Button>
                 </Grid>
